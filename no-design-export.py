@@ -138,8 +138,6 @@ def export_xml(document):
     tree.write(filename, encoding="unicode", xml_declaration=True)
     print(f"Exported XML to {filename}")
 
-#TO DO: remove .claude folder, .git folder, .gitignore file, readme.md file, claude.md file, and all files from exports folder
-
 def main():
     formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
