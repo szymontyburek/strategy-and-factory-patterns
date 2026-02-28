@@ -148,36 +148,37 @@ def export_xml(document):
     print(f"Exported XML to {filename}")
 
 
-#TO DO: create main function and move logic to main.py, so no logic exists outside of a function
 #TO DO: change value of document variable to semicon related report
 #TO DO: create seperate files that contain logic in main.py with strategy and factory design patterns
 #TO DO: remove .claude folder, .git folder, readme.md, claude.md file, and all files from exports folder
 
-os.makedirs("exports", exist_ok=True)
-
-formats = ["txt", "csv", "tsv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
-format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
-while format not in formats:
-    print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
+def main():
+    formats = ["txt", "csv", "tsv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
+    while format not in formats:
+        print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
+        format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
 
-if format == "txt":
-    export_txt(document)
-elif format == "csv":
-    export_csv(document)
-elif format == "tsv":
-    export_tsv(document)
-elif format == "json":
-    export_json(document)
-elif format == "markdown":
-    export_markdown(document)
-elif format == "html":
-    export_html(document)
-elif format == "ini":
-    export_ini(document)
-elif format == "svg":
-    export_svg(document)
-elif format == "rtf":
-    export_rtf(document)
-elif format == "xml":
-    export_xml(document)
+    if format == "txt":
+        export_txt(document)
+    elif format == "csv":
+        export_csv(document)
+    elif format == "tsv":
+        export_tsv(document)
+    elif format == "json":
+        export_json(document)
+    elif format == "markdown":
+        export_markdown(document)
+    elif format == "html":
+        export_html(document)
+    elif format == "ini":
+        export_ini(document)
+    elif format == "svg":
+        export_svg(document)
+    elif format == "rtf":
+        export_rtf(document)
+    elif format == "xml":
+        export_xml(document)
+
+if __name__ == "__main__":
+    main()
