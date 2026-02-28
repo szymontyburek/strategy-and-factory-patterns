@@ -139,6 +139,8 @@ def export_xml(document):
     print(f"Exported XML to {filename}")
 
 def main():
+    os.makedirs("exports", exist_ok=True)
+
     formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
     while format not in formats:
