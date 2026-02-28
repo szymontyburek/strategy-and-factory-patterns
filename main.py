@@ -1,3 +1,5 @@
+import os
+
 document = {
     "title": "Q1 Sales Report",
     "author": "Jane Smith",
@@ -11,36 +13,37 @@ document = {
 }
 
 def export_pdf(document):
-    print("=== PDF EXPORT ===")
-    print(f"Title:  {document['title']}")
-    print(f"Author: {document['author']}")
-    print("-" * 40)
-    for row in document["rows"]:
-        print("  |  ".join(str(cell).ljust(12) for cell in row))
-    print("=" * 40)
-    print()
+    filename = f"exports/{document['title']}.txt"
+    with open(filename, "w") as f:
+        f.write("=== PDF EXPORT ===\n")
+        f.write(f"Title:  {document['title']}\n")
+        f.write(f"Author: {document['author']}\n")
+        f.write("-" * 40 + "\n")
+        for row in document["rows"]:
+            f.write("  |  ".join(str(cell).ljust(12) for cell in row) + "\n")
+        f.write("=" * 40 + "\n")
+    print(f"Exported PDF to {filename}")
 
 
 def export_excel(document):
-    print("=== EXCEL EXPORT ===")
-    print(f"[Sheet: {document['title']}]")
-    print(f"[Author: {document['author']}]")
-    print()
-    for row in document["rows"]:
-        print("\t".join(str(cell) for cell in row))
-    print()
+    filename = f"exports/{document['title']}.tsv"
+    with open(filename, "w") as f:
+        f.write(f"[Sheet: {document['title']}]\n")
+        f.write(f"[Author: {document['author']}]\n\n")
+        for row in document["rows"]:
+            f.write("\t".join(str(cell) for cell in row) + "\n")
+    print(f"Exported Excel to {filename}")
 
 
 def export_csv(document):
-    print("=== CSV EXPORT ===")
-    for row in document["rows"]:
-        print(",".join(f'"{cell}"' for cell in row))
-    print()
+    filename = f"exports/{document['title']}.csv"
+    with open(filename, "w") as f:
+        for row in document["rows"]:
+            f.write(",".join(f'"{cell}"' for cell in row) + "\n")
+    print(f"Exported CSV to {filename}")
 
 
-#TO DO: refactor export_* functions to create files in exports folder instead of printing to console
-#TO DO: remove .claude folder, .git folder, readme.md, and claude.md file 
-
+os.makedirs("exports", exist_ok=True)
 
 # Change this value to test a different format: "pdf", "excel", "csv"
 formats = ["pdf", "excel", "csv"]
