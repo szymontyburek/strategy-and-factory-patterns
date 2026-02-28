@@ -1,4 +1,4 @@
-=== PDF EXPORT ===
+=== TXT EXPORT ===
 Title:  Q1 Sales Report
 Author: Jane Smith
 ----------------------------------------
