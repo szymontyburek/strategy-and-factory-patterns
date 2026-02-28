@@ -4,14 +4,12 @@ import configparser
 import xml.etree.ElementTree as ET
 
 document = {
-    "title": "Q1 Sales Report",
-    "author": "Jane Smith",
+    "title": "Monthly Yield Report",
+    "author": "John Doe",
     "rows": [
-        ["Region", "Product", "Units Sold", "Revenue"],
-        ["North",  "Widget A", 120,          "$2,400"],
-        ["South",  "Widget B", 95,           "$1,900"],
-        ["East",   "Widget C", 200,          "$6,000"],
-        ["West",   "Widget A", 80,           "$1,600"],
+        ["Location", "Total", "Passed", "Rejected", "Yield"],
+        ["AZ",        93234,   81387,    11847,      "87.2%"],
+        ["CA",        59712,   48975,    10737,      "82.0%"]
     ]
 }
 
@@ -148,7 +146,7 @@ def export_xml(document):
     print(f"Exported XML to {filename}")
 
 
-#TO DO: change value of document variable to semicon related report
+#TO DO: refactor tsv export functions to match the new document structure
 #TO DO: create seperate files that contain logic in main.py with strategy and factory design patterns
 #TO DO: remove .claude folder, .git folder, readme.md, claude.md file, and all files from exports folder
 
