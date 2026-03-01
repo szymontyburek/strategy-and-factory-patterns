@@ -1,7 +1,7 @@
 from strategy_pattern import (
     ExportStrategy,
     TxtStrategy, CsvStrategy, JsonStrategy, MarkdownStrategy,
-    HtmlStrategy, IniStrategy, SvgStrategy, RtfStrategy, XmlStrategy
+    HtmlStrategy, SvgStrategy, RtfStrategy, XmlStrategy
 )
 
 
@@ -16,7 +16,6 @@ class ExportFactory:
             "json":     JsonStrategy,
             "markdown": MarkdownStrategy,
             "html":     HtmlStrategy,
-            "ini":      IniStrategy,
             "svg":      SvgStrategy,
             "rtf":      RtfStrategy,
             "xml":      XmlStrategy,

@@ -1,4 +1,3 @@
-#TO DO: import export module into strategy_pattern.py
 #TO DO: remove .claude folder, .git folder, .gitignore file, readme.md file, claude.md file, and all files from exports folder
 
 import export
@@ -14,8 +13,8 @@ document = {
 }
 
 # --- NO DESIGN PATTERN IMPLEMENTATION ---
-def main_without_design():
-    formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
+def main_without_design_patterns():
+    formats = ["txt", "csv", "json", "markdown", "html", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
     while format not in formats:
         print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
@@ -31,8 +30,6 @@ def main_without_design():
         export.export_markdown(document)
     elif format == "html":
         export.export_html(document)
-    elif format == "ini":
-        export.export_ini(document)
     elif format == "svg":
         export.export_svg(document)
     elif format == "rtf":
@@ -44,7 +41,7 @@ def main_without_design():
 from factory_pattern import ExportFactory
 from strategy_pattern import DocumentExporter
 def main_with_design_patterns():
-    formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
+    formats = ["txt", "csv", "json", "markdown", "html", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
     while format not in formats:
         print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")

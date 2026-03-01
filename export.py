@@ -67,18 +67,6 @@ def export_html(document):
     print(f"Exported HTML to {filename}")
 
 
-def export_ini(document):
-    filename = f"exports/{document['title']}.ini"
-    config = configparser.ConfigParser()
-    config["metadata"] = {"title": document["title"], "author": document["author"]}
-    header = document["rows"][0]
-    for i, row in enumerate(document["rows"][1:]):
-        config[f"row_{i}"] = {str(header[j]): str(row[j]) for j in range(len(header))}
-    with open(filename, "w") as f:
-        config.write(f)
-    print(f"Exported INI to {filename}")
-
-
 def export_svg(document):
     filename = f"exports/{document['title']}.svg"
     rows = document["rows"]
