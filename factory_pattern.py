@@ -1,4 +1,3 @@
-import os
 from strategy_pattern import (
     ExportStrategy,
     TxtStrategy, CsvStrategy, JsonStrategy, MarkdownStrategy,

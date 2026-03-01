@@ -156,8 +156,5 @@ class DocumentExporter:
     def __init__(self, strategy: ExportStrategy):
         self.strategy = strategy
 
-    def set_strategy(self, strategy: ExportStrategy):
-        self.strategy = strategy
-
     def export(self, document):
         self.strategy.export(document)
