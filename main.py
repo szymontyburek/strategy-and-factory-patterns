@@ -1,3 +1,4 @@
+#TO DO: import export module into strategy_pattern.py
 #TO DO: remove .claude folder, .git folder, .gitignore file, readme.md file, claude.md file, and all files from exports folder
 
 import export
@@ -39,5 +40,20 @@ def main_without_design():
     elif format == "xml":
         export.export_xml(document)
 
+# --- DESIGN PATTERN IMPLEMENTATION ---
+from factory_pattern import ExportFactory
+from strategy_pattern import DocumentExporter
+def main_with_design_patterns():
+    formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
+    format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
+    while format not in formats:
+        print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
+        format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
+
+    strategy = ExportFactory.create(format)  # Factory decides WHAT to create
+    exporter = DocumentExporter(strategy) # Strategy decides HOW to export
+    exporter.export(document)
+
 if __name__ == "__main__":
-    main_without_design()
+    # main_without_design_patterns()
+    main_with_design_patterns()

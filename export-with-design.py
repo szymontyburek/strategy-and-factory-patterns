@@ -1,3 +1,5 @@
+#TO DO: remove .claude folder, .git folder, .gitignore file, readme.md file, claude.md file, and all files from exports folder
+
 import os
 from factory_pattern import ExportFactory
 from strategy_pattern import DocumentExporter
