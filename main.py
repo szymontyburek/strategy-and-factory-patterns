@@ -46,7 +46,7 @@ def get_available_conversions(files):
 
     conversions = []
     for ext in sorted(extensions):
-        targets = ConvertFactory.get_targets(ext)
+        targets = ConvertFactory.get_available_formats(ext)
         for target in targets:
             conversions.append((ext, target))
 
@@ -117,8 +117,8 @@ def main():
     convert_files(files, source_ext, target_ext)
 
 if __name__ == "__main__":
-    #TODO: create unit tests to verify get_targets() output
     #TODO: refactor README.md to include instructions for: running tests & running the program with sample input files
+    #TODO: create classes folder and move ConvertFactory and ConvertStrategy into it, then update imports accordingly
     #TODO: remove excess files and folders (ex: claude.md, .vscode, .git, .gitignore, etc.)
     #TODO: provide sample input files for testing
     #TODO: empty output folder

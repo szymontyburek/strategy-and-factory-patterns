@@ -60,7 +60,7 @@ class ConvertFactory:
         return ConvertFactory._strategies[key]()
 
     @staticmethod
-    def get_targets(source_format: str) -> list:
+    def get_available_formats(source_format: str) -> list:
         """Return a list of valid target formats for the given source format.
 
         Args:
